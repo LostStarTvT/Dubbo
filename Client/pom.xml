@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Dubbo</artifactId>
+        <groupId>org.example</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>Client</artifactId>
+
+    <dependencies>
+        <!--依赖服务器端  然后自己就能够调用服务器端的方法，竟然是进行导包进来？
+        也就是说，必须将服务器端的打包成jar包，然后放到maven本地仓库，然后放到客户端的maven依赖中，如果不放进来，则不能实现。
+        实现打包的方法为 maven install
+
+        注意：如果这里找不到 ProviderServiceAnnotation 类，请在服务端先把服务端工程用 Maven intall 一下，然后将服务端的依赖放到消费端的 pom 中。如下：
+        -->
+
+<!--        <dependency>-->
+<!--            <groupId>org.example</groupId>-->
+<!--            <artifactId>Server</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--            <scope>compile</scope>-->
+<!--        </dependency>-->
+
+        <!--公共的api-->
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>ServiceApi</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+</project>

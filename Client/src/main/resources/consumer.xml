@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--当前项目在整个分布式架构里面的唯一名称，计算依赖关系的标签-->
+    <dubbo:application name="consumer" owner="sihai"/>
+
+    <!--dubbo这个服务所要暴露的服务地址所对应的注册中心-->
+<!--点对点的方式-->
+<!--    <dubbo:registry address="N/A" />-->
+
+    <!--生成一个远程服务的调用代理-->
+<!--    <dubbo:reference id="providerService"-->
+<!--                     interface="com.dubbo.consumer.Service.ProviderService"-->
+<!--                     url="dubbo://192.168.249.1:20880/com.dubbo.provider.Service.ProviderService"/>-->
+<!--    通过配置interface接口 然后在项目中就可以直接的调用这个接口。不需要自己去定义。。 卧槽真的强。-->
+
+
+<!--使用zookeeper的方式进行服务的注册于发现。-->
+    <dubbo:registry address="zookeeper://192.168.249.128:2181" check="false"/>
+    <!-- 在使用的时候也是导入这个包的路径，但是具体的方法时怎么获取到的呢？ 可能是在-->
+   <dubbo:reference id="providerService"
+                     interface="com.dubbo.api.ProviderService"/>
+</beans>
